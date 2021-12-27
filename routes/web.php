@@ -21,10 +21,10 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/api/user/{id}', function ($id) {
+    Route::get('/user/{id}', function ($id) {
         return response(User::find($id)->name);
     });
     Route::apiResource('cars', CarController::class);
 });
 
-Route::post('/api/tokens/create', [ApiTokenController::class, 'createToken'])->name('tokensCreate');
+Route::post('/tokens/create', [ApiTokenController::class, 'createToken'])->name('tokensCreate');
